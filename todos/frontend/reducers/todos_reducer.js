@@ -1,12 +1,12 @@
-import * as actions from "./actions/todo_actions";
+import { RECEIVE_TODO, RECEIVE_TODOS } from "../actions/todo_actions";
 
 
 
 const todosReducer = (state = {}, action) => {
-        switch (action.type){
-            default:
-                return state;
+        switch (action.type) {
+                default:
+                        return state;
         }
-}
+};
 
 export default todosReducer;
