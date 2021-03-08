@@ -8,6 +8,7 @@
 
 
 Todo.destroy_all
+ApplicationRecord.connection.reset_pk_sequence!("todos")
 
 todo1 = Todo.create!(title: "First Todo", body: "Make coffee", done: false)
 todo2 = Todo.create!(title: "Second Todo", body: "Add milk", done: false)

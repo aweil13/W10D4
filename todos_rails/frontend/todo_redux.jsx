@@ -5,15 +5,17 @@ import { receiveTodo, receiveTodos, removeTodo } from "./actions/todo_actions"
 import App from "./components/app";
 import Root from "./components/root";
 import allTodos from "./reducers/selectors";
+import { fetchTodos } from "./util/todo_api_util";
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log("Hello");
     const store = configureStore();
     const root = document.getElementById("root");
-    ReactDOM.render(<Root store={store}/>, root);
+    ReactDOM.render(<Root store={store} />, root);
     window.store = configureStore();
     window.receiveTodo = receiveTodo;
     window.receiveTodos = receiveTodos;
     window.removeTodo = removeTodo;
     window.allTodos = allTodos;
+    window.fetchTodos = fetchTodos;
 });
