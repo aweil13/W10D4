@@ -2,8 +2,9 @@ import React from 'react';
 
 
 
+
 class TodoForm extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             id: Math.floor(Math.random() * 10000),
@@ -16,22 +17,23 @@ class TodoForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    updateTitle(e){
+    updateTitle(e) {
         this.setState({
             title: e.target.value,
         });
     }
-    
-    updateBody(e){
+
+    updateBody(e) {
         this.setState({
             body: e.target.value,
         });
     }
- 
 
-    handleSubmit(e){
+
+    handleSubmit(e) {
         e.preventDefault();
         this.props.receiveTodo(this.state);
+        debugger
         this.setState({
             id: Math.floor(Math.random() * 10000),
             title: "",
@@ -40,17 +42,17 @@ class TodoForm extends React.Component {
         });
     }
 
-    render(){
+    render() {
         return (
             <form onSubmit={this.handleSubmit}>
                 <h1>Add a Todo</h1>
-                    <label>Title
-                        <input type="text" value={this.state.title} onChange={this.updateTitle}/>
-                    </label>
-                    <label>Body
-                        <input type="text" value={this.state.body} onChange={this.updateBody}/>
-                    </label>
-            <input type="submit" value="Add Todo"/>
+                <label>Title
+                        <input type="text" value={this.state.title} onChange={this.updateTitle} />
+                </label>
+                <label>Body
+                        <input type="text" value={this.state.body} onChange={this.updateBody} />
+                </label>
+                <input type="submit" value="Add Todo" />
             </form>
         );
     }
